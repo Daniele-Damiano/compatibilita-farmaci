@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Compatiblità Farmaci</title>
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+
+    <body>
+        <h1>Medicine</h1>
+
+        <!--  L'elemento html <option>valore</option> e inserito tramite javascript vedi riga 17 la funzione autoCompletamentoFarmaco() -->        
+        <label for="FarmacoA">Framaco A:
+            <input class="farmacoA" type="text" name="FamracoA" list="farmaci"/>
+        </label>
+        <datalist id="farmaci"></datalist> 
+
+        <br>
+
+        <label for="FarmacoB">Farmaco B:
+            <input class="farmacoB" type="text" name="FarmacoB" list="farmaci"/>
+        </label>
+        <datalist id="farmaci"></datalist> 
+
+        <button>Vai</button>
+
+        <br>
+
+        <p class="result"></p>
+        <p class="resultFarmacoa"></p>
+        <p class="farmacoaNonTrovato"></p>
+        <p class="resultFarmacob"></p>
+
+        <script type="text/javascript" src="javascript/start.js"></script>
+
+    </body>
+
+    </html>
