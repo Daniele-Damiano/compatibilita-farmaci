@@ -1,46 +1,50 @@
 /*global document, window  */
 var button = document.querySelector('button');
-var inp_1 = document.querySelector('.uno');
-var inp_2 = document.querySelector('.due');
-var para = document.querySelector('.result');
-var para1 = document.querySelector('.resultFarmacoa');
-var para2 = document.querySelector('.resultFarmacob');
-var farmacoANontrovato = document.querySelector('.farmacoaNonTrovato');
 
 
 
 
 /**
-   Autocompleta il farmaco immesso nel input FarmacoA
+   Autocompleta il farmaco immesso dall'utente nei campi di input
     
 */
-/*function autoCompletamentoFarmacoA(){
-    var farmacoA = inp_1.value;
-    
+function autoCompletamentoFarmaco(){
+   
     var farmaci = ['abiciximab', 'acetilcisteina', 'aciclovir', 'acido ascorbico', 'acido etacrinico', 'acido folico', 'acido tranexamico', 'adrenalina', 'albumina umana', 'aloperidolo', 'alteplase', 'amfotericina b', 'amikacina solfato', 'aminofillina', 'amiodarone cloridrato', 'amoxicillina', 'amoxicillina/acido clavulanico', 'ampicillina', 'ampicillina/sulbactam', 'anidulafungina', 'antitrombina ||| umana', 'argatroban anidro', 'atenololo', 'atracurium', 'atropina', 'azitromicina', 'aztreonam', 'betametasone', 'calcio clororo', 'calcio gluconato', 'caspofungin', 'cefazolina sodica', 'cefepime dicloridrato', 'cefoxitina sodica', 'ceftazidima pentaidrato', 'ceftizixima sodica', 'ceftriaxone disodico', 'complesso vitaminico', 'cianocobalamina', 'ciclofosfamide', 'ciclosporina', 'ciprofloxacina', 'cisatracurio besilato', 'claritromicina', 'clindamicina fosfato', 'clonidina', 'clorfenamina maleato', 'colistina solfato', 'daptomicina', 'desametasone fosfato disodico', 'diazepam', 'diclofenac', 'digossina', 'diltiazem cloridrato', 'dobutamina', 'dopamina', 'drotrecogin alfa attivato', 'eparina sodica', 'epoprostenolo sodico', 'eritromicina', 'esmololo ', 'fenitoina sodica', 'fenobarbital', 'fenoldopam mesilato', 'fentanil citrato', 'fisostigmina salicilato', 'fitomenadione(vit.k)', 'fluconazolo', 'flumazenil', 'foscarnet sodico', 'furosemide', 'ganciclovir', 'gentamicina solfato', 'idrocortisone emis. sodico', 'idroxizina dicloridrato', 'imipenem/cilastatina', 'insulina umana', 'isoprenalina cloridrato', 'ketamina', 'ketorolac trometamina', 'labetalolo cloridrato', 'levofloxacina', 'lidocaina cloridrato', 'linezolid', 'lorazepam', 'magnesio solfato', 'meropenem', 'metilprednisolone', 'metoclopramide cloridrato', 'metoprololo tartrato', 'metronidazolo', 'midazolam', 'morfina cloridrato', 'naloxone cloridrato', 'na nitroprussiato anidro', 'neostigmina metilsolfato', 'nimodipina', 'nitroglicerina', 'noradrenalina tartrato', 'octreotide', 'omeprazolo', 'ondansetrone cloridrato', 'oxacillina', 'pancuronio bromuro', 'pantoprazolo sodico', 'penicillina g potassica', 'pentoxifillina', 'piperacillina sodica', 'piperacillina/tazobactam', 'potassio cloruro', 'propofol', 'protamina cloridrato', 'ranitidina cloridrato', 'remifentanil cloridrato', 'rifampicina', 'rocuronio bromuro', 'salbutamolo', 'sodio bicarbonato', 'sodio cloruro 0.9%', 'sodio valproato', 'succinilcolina', 'sufentanil', 'ticarcillina/acido clavulanico', 'tigeciclina', 'tiopental sodico', 'tobramicina', 'tramadolo cloridrato', 'trimetroprim/sulfametoxazolo', 'urochinasi', 'vancomicina cloridrato', 'vasopressina ', 'verapamil cloridrato', 'voriconazolo'];
     
-   for(var i = 0; i < farmaci.length; i++){
-       if(farmacoA !== ''){
-            if(farmaci[i].startsWith(farmacoA)){
-                window.console.log(farmaci[i]);
-            }
-       }else{
-           window.console.clear();
-       }
-   }
-}*/
+    var datalist = document.querySelector("#farmaci");
+    
+    for(var i = 0; i < farmaci.length; i++){
+        var option = document.createElement('option');
+        var textNode = document.createTextNode(farmaci[i]);
+        option.appendChild(textNode);
+        datalist.appendChild(option);
+        
+    }
+}
 
 
 
 
 /**
-    Cercs i farmaci presi in input 
+    Cercs i farmaci presi in input dall'utente
 */
 function cerca() {
+    
+    var para = document.querySelector('.result');
+
+    var para1 = document.querySelector('.resultFarmacoa');
+    var para2 = document.querySelector('.resultFarmacob');
+    var farmacoANontrovato = document.querySelector('.farmacoaNonTrovato');
+    
+    /* Prende il farmaco dai campi testuali */
+    var inp_1 = document.querySelector('.farmacoA');
+    var inp_2 = document.querySelector('.farmacoB');
     var farmacoa = inp_1.value;
     var farmacob = inp_2.value;
+  
 
-    //dichiarazione array di oggetti medicine
+    //Dichiarazione array di oggetti medicine
     var medicine =
 
 [ //Apertura parentesi oggetto medicine
@@ -51,25 +55,25 @@ function cerca() {
                 ViaCentraleOPeriferica: '',
                 valore: ['']
     },
-            { //riga [1] , colonna [0]
+            { //riga [1] , colonna [1]
                 riga: 'acetilcisteina',
                 colonna: ['abiciximab', 'acetilcisteina'],
                 ViaCentraleOPeriferica: '',
                 valore: ['I']
     },
-            { //riga [2] , colonna [1]
+            { //riga [2] , colonna [2]
                 riga: 'aciclovir',
                 colonna: ['abiciximab', 'acetilcisteina', 'aciclovir'],
                 ViaCentraleOPeriferica: '',
                 valore: ['I', ' ']
      },
-            { //riga [3] , colonna [2]
+            { //riga [3] , colonna [3]
                 riga: 'acido ascorbico',
                 colonna: ['abiciximab', 'acetilcisteina', 'aciclovir', 'acido ascorbico'],
                 ViaCentraleOPeriferica: '',
                 valore: ['I', ' ', '', '']
      },
-            { //riga [4] , colonna [3]
+            { //riga [4] , colonna [4]
                 riga: 'acido etacrinico',
                 colonna: ['abiciximab', 'acetilcisteina', 'aciclovir', 'acido ascorbico', 'acido etacrinico'],
                 ViaCentraleOPeriferica: '',
@@ -851,31 +855,11 @@ function cerca() {
                 valore: ['I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', '!', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', ' C', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', '!', 'I']
 
 
-            } // tolta virgola
+            } ] //Chiusura array oggett medicine
 
-
-] //Chiusura array oggett medicine
-
-    /*for (var i = 0; i < medicine.length; i++) { // Scandisce le righe
-        if (medicine[i].riga === farmacoa) {
-            para1.textContent = 'Farmaco A Trovato = ' + ' ' + medicine[i].riga;
-            for (var j = 0; j < medicine[i].colonna.length; j++) { // Scandisce le colonne
-                if (medicine[i].colonna[j] === farmacob) {
-                    para2.textContent = 'Farmaco B Trovato = ' + ' ' + medicine[i].colonna[j];
-                    para.textContent = 'Valore  = ' + ' ' + medicine[i].valore[j];
-                    break;
-                } else {
-                    para2.textContent = 'Farmaco B non compatibile con:'+ ' ' + medicine[i].riga;
-                    break;
-                }
-            }
-        } else {
-            para1.textContent = 'Farmaco A: Non trovato:'+ ' ' + farmacoa;
-            
-        }
-    }*/
+   
     
-    //cosi funziona non pensare a farmaco a non trovato 
+    /* Ciclo da aggiustare non trova bene i valori */
     for (var i = 0; i < medicine.length; i++) { // Scandisce le righe
         if (medicine[i].riga !== farmacoa) {
             farmacoANontrovato.textContent = 'Farmaco A: Non trovato:';//+ ' ' + farmacoa;
@@ -898,6 +882,7 @@ function cerca() {
 
 
 
-
+/* Eventi di click sul bottone e di onload su window  */
 button.addEventListener('click', cerca);
-//inp_1.addEventListener('input', autoCompletamentoFarmacoA);
+window.addEventListener('load', autoCompletamentoFarmaco);
+
