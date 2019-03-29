@@ -1766,11 +1766,8 @@ function cerca() {
 
 /********************************************************************************************
 *                                                                                            *
-*       Controllare le propietà con il metodo hasOwnProperty(String):                        *  
-*       conservareAlRiparoDallaLuce                                                          *
-*       ConservareESomministrareAlRiparoDallaLuce                                            *
 *      
-*       Ciclo da aggiustare non trova bene i valori
+*        Ciclo da aggiustare non trova bene i valori
 *                                                                                            *
 **********************************************************************************************
     /*  */
