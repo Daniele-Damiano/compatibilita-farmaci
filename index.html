@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-<<<<<<< HEAD
-        <title>Document</title>
-=======
-        <title>Compatiblità Farmaci</title>
->>>>>>> 10182350edacdf552ec5bc86f0e7e268fb7329c4
-        <link rel="stylesheet" href="css/main.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Compatiblità Farmaci</title>
+    <link rel="stylesheet" href="css/main.css">
 
-    </head>
+</head>
 
-    <body>
+<body>
+    <header>
         <h1>Medicine</h1>
-<<<<<<< HEAD
-        <label for="1">Framaco A:
-            <input class="uno" type="text" name="1"/>
-        </label>
+    </header>
 
-        <br>
+    <!--  L'elemento html <option>valore</option> e inserito tramite javascript vedi riga 17 la funzione autoCompletamentoFarmaco() -->
+    <section>
+        <article>
+            <label for="FarmacoA">Framaco A:
+                <input class="farmacoA" type="text" name="FamracoA" list="farmaci" />
+            </label>
+            <datalist id="farmaci"></datalist>
 
-        <label for="1">Farmaco B:
-            <input class="due" type="text" name="2"/>
-        </label>
-=======
 
-        <!--  L'elemento html <option>valore</option> e inserito tramite javascript vedi riga 17 la funzione autoCompletamentoFarmaco() -->        
-        <label for="FarmacoA">Framaco A:
-            <input class="farmacoA" type="text" name="FamracoA" list="farmaci"/>
-        </label>
-        <datalist id="farmaci"></datalist> 
 
-        <br>
+            <label for="FarmacoB">Farmaco B:
+                <input class="farmacoB" type="text" name="FarmacoB" list="farmaci" />
+            </label>
+            <datalist id="farmaci"></datalist>
 
-        <label for="FarmacoB">Farmaco B:
-            <input class="farmacoB" type="text" name="FarmacoB" list="farmaci"/>
-        </label>
-        <datalist id="farmaci"></datalist> 
->>>>>>> 10182350edacdf552ec5bc86f0e7e268fb7329c4
+            <!-- Riga 4 file javascript e piu vedi dove stanno gli eventi ultime righe -->
+            <button>Cerca Farmaco</button>
 
-        <button>Vai</button>
+            <p class="result"></p>
+            <p class="resultFarmacoa"></p>
+            <p class="farmacoaNonTrovato"></p>
+            <p class="resultFarmacob"></p>
+        </article>
 
-        <br>
 
-        <p class="result"></p>
-        <p class="resultFarmacoa"></p>
-        <p class="farmacoaNonTrovato"></p>
-        <p class="resultFarmacob"></p>
+        <article>
+            <!-- Vedi neil file javascript riga 31, funzione showResultInTable()-->
+            <table id="tableFarmaci"></table>
 
-        <script type="text/javascript" src="javascript/start.js"></script>
 
-    </body>
 
-    </html>
+
+            <!-- Riga 5 file javascript e piu vedi dove stanno gli eventi ultime righe -->
+            <button id="mostraFarmaci">Mostra Tutti i Farmaci</button>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="javascript/start.js"></script>
+
+</body>
+
+</html>

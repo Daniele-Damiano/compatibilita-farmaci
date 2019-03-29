@@ -1,4 +1,6 @@
-/*global document, window  */
+/* 
+ global document, window  
+*/
 var button = document.querySelector('button');
 var mostraFarmaci = document.querySelector('#mostraFarmaci');
 
@@ -1722,13 +1724,15 @@ function cerca() {
                 }
             }    
         }
-
+        
     }
 }
 
 
 
-/* Eventi di click sul bottone e di onload su window  */
+/* 
+    Eventi di click sul bottone e di onload sul bottone con id mostra farmaci 
+*/
 button.addEventListener('click', cerca);
 mostraFarmaci.addEventListener('click', showResultInTable);
 window.addEventListener('load', autoCompletamentoFarmaco);
