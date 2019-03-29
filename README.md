@@ -1,5 +1,5 @@
 # Compatibilita Farmaci
 Controllo compatibilità tra farmaci 
-Sviluppato in Html, css , Javascript
+Sviluppato in Html, Css , Javascript
 
 Editor Brackets.
