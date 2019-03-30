@@ -887,11 +887,12 @@ function cerca() {
 
     var para = document.querySelector('.result');
 
+
     var para1 = document.querySelector('.resultFarmacoa');
     var para2 = document.querySelector('.resultFarmacob');
     var para3 = document.querySelector('.conservareAlRiparoDallaLuce');
     var para4 = document.querySelector('.conservareESomministrareAlRiparoDellaLuce');
-   // var farmacoANontrovato = document.querySelector('.farmacoaNonTrovato');
+    
 
     /* 
         Prende il farmaco dai campi testuali 
@@ -998,7 +999,7 @@ function cerca() {
             riga: 'amiodarone cloridrato',
             colonna: ['abiciximab', 'acetilcisteina', 'aciclovir', 'acido ascorbico', 'acido etacrinico', 'acido folico', 'acido tranexamico', 'adrenalina', 'albumina umana', 'aloperidolo', 'alteplase', 'amfotericina b', 'amikacina solfato', 'aminofillina', 'amiodarone cloridrato'],
             ViaCentraleOPeriferica: '',
-            valore: ['I', ' C', ' ', ' ', ' ', 'I', ' ', ' C', ' ', ' C', ' ', 'Y', 'Y', 'I'],
+            valore: ['I', ' C', ' ', ' ', ' ', 'I', ' ', 'C', ' ', 'C', ' ', 'Y', 'Y', 'I'],
             conservareAlRiparoDallaLuce: 'Si'
     },
         {
@@ -1764,43 +1765,79 @@ function cerca() {
             }] //Chiusura array oggetto medicine
 
 
-/********************************************************************************************
-*                                                                                            *
-*      
-*        Ciclo da aggiustare non trova bene i valori
-*                                                                                            *
-**********************************************************************************************
-    /*  */
+
+    /*
+        Cerca i farmaci nell' oggetto medicine
+        Il primo cilco scandisce le righe il sedondo le colonne
+    */
     for (var i = 0; i < medicine.length; i++) { // Scandisce le righe
-        if (medicine[i].riga !== farmacoa) {
-           // farmacoANontrovato.textContent = 'Farmaco A: Non trovato:'; //+ ' ' + farmacoa;
-            medicine[i].conservareESomministrareAlRiparoDellaLuce
-        } else {
-            para1.textContent = 'Farmaco A Trovato = ' + ' ' + medicine[i].riga;
-            for (var j = 0; j < medicine[i].colonna.length; j++) { // Scandisce le colonne
-                if (medicine[i].colonna[j] !== farmacob) {
-                    //para2.textContent = 'Farmaco B non compatibile con:' + ' ' + medicine[i].riga;
-                } else {
+        if (medicine[i].riga.trim() == farmacoa.trim()) {
+            
+            para1.textContent = 'Farmaco A Trovato = ' + ' ' + medicine[i].riga.trim();
+
+            /*
+                Scandisce le colonne
+            */
+            for (var j = 0; j < medicine[i].colonna.length; j++) {
+                if (medicine[i].colonna[j].trim() == farmacob.trim()) {
+
+                    para2.textContent = 'Farmaco B Trovato = ' + ' ' + medicine[i].colonna[j].trim();
+
                     /*
-                        Controllo Se ha la Propietà qui sotto elencate nel metodo 
-                        hasOwnProperty dell'oggetto array medicine
+                        Controlla se ha la propietà che sono elencate qui sotto, il metodo 
+                        hasOwnProperty ritorna un valore booleano che indica se la propietà 
+                        dell'oggetto array medicine esiste o no
                     */
-                    if(medicine[i].hasOwnProperty("conservareAlRiparoDallaLuce")){
-                        para3.textContent = 'Si';
-                    }else{
-                        para3.textContent = '';
+                    if (medicine[i].hasOwnProperty("conservareAlRiparoDallaLuce")) {
+                        para3.textContent = 'Conservare al riparo dalla luce';
+                    } else {
+                        para3.textContent = ' ';
                     }
-                     if(medicine[i].hasOwnProperty("conservareESomministrareAlRiparoDellaLuce")){
-                        para4.textContent = 'Si';
-                    }else{
-                        para4.textContent = '';
+                    if (medicine[i].hasOwnProperty("conservareESomministrareAlRiparoDellaLuce")) {
+                        para4.textContent = 'Conservare + Somministrare al riparo dalla luce';
+                    } else {
+                        para4.textContent = ' ';
                     }
-                    
-                    para2.textContent = 'Farmaco B Trovato = ' + ' ' + medicine[i].colonna[j];
-                    para.textContent = 'Valore  = ' + ' ' + medicine[i].valore[j];
-                    break;
+
+                    /*
+                        Valori del farmaco se uguale a una delle lettere allplica lo stile
+                        Altrimenti lo elemina mettendo il colore al valore black
+                    */
+                    if (medicine[i].valore[j] == ' ') {
+
+                        para.textContent = 'Nessun dato disponibile';
+                        para.style.color = 'black';
+                    }
+                    if (medicine[i].valore[j].trim() == 'I') {
+
+                        para.textContent = medicine[i].valore[j];
+                        para.style.color = 'red';
+                    }
+                    if (medicine[i].valore[j].trim() == 'Y') {
+
+                        para.textContent = medicine[i].valore[j];
+                        para.style.color = 'yellow';
+                    }
+                    if (medicine[i].valore[j].trim() == 'C') {
+
+                        para.textContent = medicine[i].valore[j];
+                        para.style.color = 'green';
+                    }
+                    if (medicine[i].valore[j].trim() == '!') {
+
+                        para.textContent = medicine[i].valore[j];
+                        para.style.color = 'gray';
+                    }
+                    break; /*Esci dal ciclo quando ha trovato il farmaco*/
                 }
+               // para1.textContent = "";
+                para2.textContent = "";
+                para3.textContent = "";
+                para4.textContent = "";
+                para.textContent = "";
+                
             }
+
         }
 
     }
@@ -1808,9 +1845,10 @@ function cerca() {
 
 
 
-/* 
-    Eventi di click sul bottone e di onload sul bottone con id mostra farmaci 
-*/
+/*Cerca il faraci al click del sul bottone Cerca*/
 button.addEventListener('click', cerca);
+/*Evento su bottone Mostra Farmaci modtra la tabella al click del mouse*/
 mostraFarmaci.addEventListener('click', showResultInTable);
+/*Carica i farmaci all' avvio della pagina html nei campi di testo utilizzando la propieta datalist vedi 
+  codice html riga 29 e 27 "attributo list"*/
 window.addEventListener('load', autoCompletamentoFarmaco);
