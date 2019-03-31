@@ -17,12 +17,93 @@ table th{
     border: 2px solid black;
 }
 
+ul {
+    border: 2px solid black;
+    list-style-type: none;
+    padding-left: 2rem;
+    
+}
+ul li{
+    padding-left: 2.8rem;
+    line-height: 1.8rem;
+}
+
+.incompatibile {
+    background-image: url(../images/I.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+}
+
+.compatibileAlRubinetto{
+    background-image: url(../images/Y.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+}
+.compatibile{
+    background-image: url(../images/C.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+    
+}
+.datiContrastanti{
+    background-image: url(../images/!.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+}
+.nessunDatoDisponibile{
+    background-image: url(../images/NessunDato.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+    
+}
+.conservareAlRiparoLuce{
+    background-image: url(../images/Sia.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+}
+.conservareSomministrare{
+    background-image: url(../images/Sib.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+}
+.CVC{
+    background-image: url(../images/CVC.png);
+    background-size: 2.5rem 1.9rem;
+    background-repeat: no-repeat;
+}
+.CVCNecessario{
+    background-image: url(../images/CVCb.png);
+    background-size: 2.5rem 1.9rem;
+    background-repeat: no-repeat;
+}
+.notoRischio{
+    background-image: url(../images/NotoRischio.png);
+    background-size: 1.4rem 1.4rem;
+    background-repeat: no-repeat;
+}
+
 .result{
+    width: 2%;
+    height: auto;
+    
     font-size: 2em;
+    text-align: center;
 }
 .conservareAlRiparoDallaLuce{
+    width: 3%;
+    height: auto;
+    
     font-size: 2em;
+    text-align: center;
 }
 .conservareESomministrareAlRiparoDellaLuce{
+    width: 3%;
+    height: auto;
+    
+    font-size: 2em;
+    text-align: center;
+}
+.viaCentraleOPeriferica{
+    width: 30%;
     font-size: 2em;
 }
