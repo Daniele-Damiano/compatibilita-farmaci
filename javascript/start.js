@@ -1813,7 +1813,7 @@ function cerca() {
                 Scandisce le colonne
             */
             for (var j = 0; j < medicine[i].colonna.length; j++) {
-                if (medicine[i].colonna[j].trim() == farmacob.trim()) {
+                if (medicine[i].colonna[j].trim() == farmacob.trim()) { /*Il farmaco e stato trovato */
 
                     para2.textContent = 'Farmaco B Trovato = ' + ' ' + medicine[i].colonna[j].trim();
 
@@ -1940,6 +1940,7 @@ function cerca() {
                     }else{
                         
                         para5.textContent = "";
+                        para5.style.border = '';
                     }
                     
                    
@@ -1955,6 +1956,7 @@ function cerca() {
                         para3.style.border = '2px solid black';
                     } else {
                         para3.textContent = ' ';
+                        para3.style.border = ' ';
                     }
                     if (medicine[i].hasOwnProperty("conservareESomministrareAlRiparoDellaLuce")) {
                         para4.textContent = 'SI';
@@ -1962,6 +1964,7 @@ function cerca() {
                         para4.style.border = '2px solid black';
                     } else {
                         para4.textContent = ' ';
+                        para4.style.border = ' ';
                     }
 
                     /*
@@ -2008,9 +2011,19 @@ function cerca() {
                
                 /*Azzera tutto se non trova il farmaco solla colonna nell array medicine*/
                 para2.textContent = "";
+               
+                
                 para3.textContent = "";
+                para3.style.border = 'none';
+                
                 para4.textContent = "";
+                para4.style.border = 'none';
+                
+                para5.textContent = "";
+                para5.style.border = 'none';
+                
                 para.textContent = "";
+                para.style.border = 'none';
                 
             }// Chiude secondo ciclo for
 
