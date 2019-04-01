@@ -9,13 +9,16 @@
 </head>
 
 <body>
-    <header>
-        <h1>Medicine</h1>
-    </header>
 
-    <!--  L'elemento html <option>valore</option> e inserito tramite javascript vedi riga 17 la funzione autoCompletamentoFarmaco() -->
-    <section>
-        <article>
+    <div class="container">
+
+        <header>
+            <h1>Medicine</h1>
+        </header>
+
+        <!--  L'elemento html <option>valore</option> e inserito tramite javascript vedi riga 17 la funzione autoCompletamentoFarmaco() -->
+
+        <article id="articleInput">
             <label for="FarmacoA">Framaco A:
                 <input class="farmacoA" type="text" name="FamracoA" list="farmaci" />
             </label>
@@ -37,26 +40,26 @@
             <p class="viaCentraleOPeriferica"></p>
             <p class="resultFarmacoa"></p>
             <p class="resultFarmacob"></p>
-            
+
 
         </article>
 
 
-        <article>
-            <!-- Vedi neil file javascript riga 31, funzione showResultInTable()-->
+        <article id="articleTableFarmaci">
+            <!--Vedi neil file javascript riga 31, funzione showResultInTable() -->
             <table id="tableFarmaci"></table>
-
-
-
-
+        
+        
+        
+        
             <!-- Riga 5 file javascript e piu vedi dove stanno gli eventi ultime righe -->
             <button id="mostraFarmaci">Mostra Tutti i Farmaci</button>
-        </article>
-
-        <article>
+        </article> 
+        
+        <article id="articleLegenda">
             <ul>
                 <li class="incompatibile">Incompatibile</li>
-                <li class= "compatibileAlRubinetto">Compatibile al rubinetto</li>
+                <li class="compatibileAlRubinetto">Compatibile al rubinetto</li>
                 <li class="compatibile">Compatibile</li>
                 <li class="datiContrastanti">Dati contrastanti</li>
                 <li class="nessunDatoDisponibile">Nessun dato disponibile</li>
@@ -69,15 +72,9 @@
                 <li>CVP catetere venoso periferico</li>
             </ul>
         </article>
-    </section>
 
 
 
-
-
-
-
-
-    <script type="text/javascript" src="javascript/start.js"></script>
-
+        <script type="text/javascript" src="javascript/start.js"></script>
+    </div>
 </body></html>
