@@ -1,109 +1,156 @@
-header{
-    text-align: center;
-}
-
-body{
+body {
     margin: 0 auto;
     width: 90%;
     padding: 2em;
-    
+
 }
-section{
+
+/*Applita la griglia all'elemento container in questo caso il tag <div>*/
+.container {
+
     display: grid;
+    /*Crea 12 colonne con dimensione minima 0px e dimensione massima 1fr*/
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    /*spazio di 20px fra colonne e righe*/
+    grid-gap: 20px;
+}
+
+/*Posizione l'header dalla colonna 1 a 13 sulla prima riga*/
+header {
+    /*Inizia dalla colnna 1 fino a 13*/
+    grid-column: 1 / 13;
+    /*Posiziona nella riga 1*/
+    grid-row: 1;
+    text-align: center;
 }
 
 
-table th{
+#articleInput
+{
+    grid-column: 1 / 13;
+    grid-row: 2;
+}
+
+#articleTableFarmaci {
+    grid-column: 1 / 13;
+    grid-row: 3;
+}
+
+#articleLegenda {
+    grid-column: 1 / 13;
+    grid-row: 4;
+}
+
+
+
+table th {
     border: 2px solid black;
 }
 
+/*Stile applicato all lista generale*/
 ul {
     border: 2px solid black;
     list-style-type: none;
     padding-left: 2rem;
-    
+
 }
-ul li{
+
+ul li {
     padding-left: 2.8rem;
     line-height: 1.8rem;
 }
 
+/*Stile applicato a ogni singolo elemento della lista <li> da riga 58 a 69*/
 .incompatibile {
     background-image: url(../images/I.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
 }
 
-.compatibileAlRubinetto{
+.compatibileAlRubinetto {
     background-image: url(../images/Y.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
 }
-.compatibile{
+
+.compatibile {
     background-image: url(../images/C.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
-    
+
 }
-.datiContrastanti{
+
+.datiContrastanti {
     background-image: url(../images/!.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
 }
-.nessunDatoDisponibile{
+
+.nessunDatoDisponibile {
     background-image: url(../images/NessunDato.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
-    
+
 }
-.conservareAlRiparoLuce{
+
+.conservareAlRiparoLuce {
     background-image: url(../images/Sia.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
 }
-.conservareSomministrare{
+
+.conservareSomministrare {
     background-image: url(../images/Sib.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
 }
-.CVC{
+
+.CVC {
     background-image: url(../images/CVC.png);
     background-size: 2.5rem 1.9rem;
     background-repeat: no-repeat;
 }
-.CVCNecessario{
+
+.CVCNecessario {
     background-image: url(../images/CVCb.png);
     background-size: 2.5rem 1.9rem;
     background-repeat: no-repeat;
 }
-.notoRischio{
+
+.notoRischio {
     background-image: url(../images/NotoRischio.png);
     background-size: 1.4rem 1.4rem;
     background-repeat: no-repeat;
 }
 
-.result{
+/*Stile applicato ai tag <p> dove vengono visualizzari i valori tramite javascript*/
+.result {
     width: 2%;
     height: auto;
-    
+
     font-size: 2em;
     text-align: center;
 }
-.conservareAlRiparoDallaLuce{
+
+.conservareAlRiparoDallaLuce {
     width: 3%;
     height: auto;
-    
+
     font-size: 2em;
     text-align: center;
 }
-.conservareESomministrareAlRiparoDellaLuce{
+
+.conservareESomministrareAlRiparoDellaLuce {
     width: 3%;
     height: auto;
-    
+
     font-size: 2em;
     text-align: center;
 }
-.viaCentraleOPeriferica{
+
+.viaCentraleOPeriferica {
     width: 30%;
     font-size: 2em;
 }
+
+
